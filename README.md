@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Auth.js External Backend Example
+
+This project demonstrates how to set up Auth.js (formerly NextAuth.js) with an external backend using the credentials provider in a Next.js application.
+
+## Features
+
+- Next.js 14 with App Router
+- Auth.js v5 (Beta) integration
+- Credentials provider for custom authentication
+- External backend API integration
+- Protected routes with middleware
+- API routes for client-side requests
 
 ## Getting Started
 
 First, run the development server:
-
-```bash
+bash
 npm run dev
-# or
+or
 yarn dev
-# or
+or
 pnpm dev
-# or
+or
 bun dev
-```
+
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/`: Contains the Next.js application pages and API routes
+- `components/`: Reusable React components
+- `lib/`: Utility functions and custom hooks
+- `types/`: TypeScript type definitions
+- `auth.ts`: Auth.js configuration
+- `middleware.ts`: Next.js middleware for protecting routes
+- `api/`: API routes for handling client-side requests
+
+## Authentication Flow
+
+1. User submits login credentials
+2. Credentials are validated against the external API
+3. Upon successful authentication, a session is created
+4. Protected routes are accessible only to authenticated users
+
+## API Routes
+
+The project includes API routes to handle client-side requests. These routes act as a backend for the Next.js application, allowing you to perform server-side operations and interact with external services.
+
+Key API routes:
+- `/api/auth/[...nextauth]`: Handles Auth.js authentication
+- `/api/posts`: Manages blog posts (example of a protected resource)
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used in this project, check out the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Auth.js Documentation](https://authjs.dev/)
